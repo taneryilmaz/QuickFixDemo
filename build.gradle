@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    implementation group: 'org.quickfixj', name: 'quickfixj-all', version: '2.3.0'
+
+    implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.2.5'
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.5'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.32'
+
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.2'
+}
+
+compileJava {
+    options.compilerArgs += ["-Aproject=${project.group}/${project.name}"]
+}
+
+repositories {
+    maven {
+        url 'https://repo.maven.apache.org/maven2'
+        name 'Maven Central'
+    }
+}
